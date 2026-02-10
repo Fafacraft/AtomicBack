@@ -36,9 +36,12 @@ export const secureService = {
     let user = await userRepository.findByEmail(User_Email);
 
     if (!user) {
-      const error = new Error('No user found with this email');
-      error.status = 401;
-      throw error;
+      let user = await userRepository.findByUsername(User_Email);
+      if (!user) {
+        const error = new Error('No user found with this email or username');
+        error.status = 401;
+        throw error;
+      }
     }
 
     const isValid = await comparePassword(User_Password, user.User_Password);
