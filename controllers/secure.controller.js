@@ -55,7 +55,9 @@ export const secureController = {
 
       return res.status(200).json({
         user: {
-          email: result.user.User_Email,
+          User_Username: result.user.User_Username,
+          User_Role: result.user.User_Role,
+          User_Email: result.user.User_Email,
         },
         accessToken: result.accessToken,
       });

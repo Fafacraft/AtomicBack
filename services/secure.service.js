@@ -11,6 +11,13 @@ export const secureService = {
       throw error;
     }
 
+    const existingByUsername = await userRepository.findByUsername(User_Username);
+    if (existingByUsername) {
+      const error = new Error('Username already used');
+      error.status = 409;
+      throw error;
+    }
+
     const passwordHash = await hashPassword(User_Password);
 
     const user = await userRepository.create({
