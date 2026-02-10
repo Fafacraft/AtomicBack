@@ -36,7 +36,7 @@ export const secureService = {
     let user = await userRepository.findByEmail(User_Email);
 
     if (!user) {
-      let user = await userRepository.findByUsername(User_Email);
+      user = await userRepository.findByUsername(User_Email);
       if (!user) {
         const error = new Error('No user found with this email or username');
         error.status = 401;
