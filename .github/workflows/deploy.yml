@@ -18,17 +18,19 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            cd ~/fafa
+            cd ~/fafa/AtomicBack
 
-            echo "📥 Pulling latest code..."
+            echo "📥 Pulling latest code for backend..."
             git pull origin main
 
             echo "📦 Installing backend deps..."
-            cd AtomicBack
             npm install
 
-            echo "📦 Installing frontend deps..."
+            echo "📥 Pulling latest code for frontend..."
             cd ../AtomicFront
+            git pull origin main
+
+            echo "📦 Installing frontend deps..."
             npm install
 
             echo "🏗️ Building frontend..."
