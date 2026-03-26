@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import secureRoute from './routes/secure.route.js';
 import userRoutes from './routes/user.routes.js';
+import atomRoute from './routes/atom.route.js';
 import { errorHandler } from './middlewares/error.middleware.js';
 
 export const createApp = () => {
@@ -13,6 +14,7 @@ export const createApp = () => {
 
     app.use('/api/secure', secureRoute);
     app.use('/api/users', userRoutes);
+    app.use('/api/atom', atomRoute);
 
     app.use(errorHandler);
 
