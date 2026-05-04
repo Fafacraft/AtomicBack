@@ -31,6 +31,7 @@ export const secureController = {
 
       return res.status(201).json({
         user: {
+          User_Id: result.user.User_Id,
           User_Username: result.user.User_Username,
           User_Role: result.user.User_Role,
           User_Email: result.user.User_Email,
@@ -55,6 +56,7 @@ export const secureController = {
 
       return res.status(200).json({
         user: {
+          User_Id: result.user.User_Id,
           User_Username: result.user.User_Username,
           User_Role: result.user.User_Role,
           User_Email: result.user.User_Email,
