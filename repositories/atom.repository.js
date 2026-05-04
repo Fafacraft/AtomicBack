@@ -9,9 +9,10 @@ export const atomRepository = {
     return Atom.findByPk(Atom_Id);
   },
 
-  findByUser: async (User_Id) => {
+  findByUserId: async (User_Id) => {
     return Atom.findAll({ where: { User_Id } });
   },
+
 
   create: async ({ Atom_Id, User_Id, Atom_proton, Atom_neutron, Atom_electron, Atom_name }) => {
     return Atom.create({

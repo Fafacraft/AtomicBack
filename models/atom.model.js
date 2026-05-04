@@ -5,7 +5,7 @@ export class Atom extends Model { }
 
 Atom.init(
     {
-        Atom_id: {
+        Atom_Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
