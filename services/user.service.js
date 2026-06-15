@@ -3,7 +3,6 @@ import { hashPassword } from '../utils/password.js';
 
 export const userService = {
   createUser: async ({ User_Username, User_Role, User_Password, User_Email }) => {
-    console.log('Creating user with email:', User_Email);
     const existingEmail = await userRepository.findByEmail(User_Email);
     if (existingEmail) {
       const error = new Error('Email already used');
@@ -85,7 +84,7 @@ export const userService = {
       User_Username: data.User_Username,
       User_Role: data.User_Role,
       User_Email: data.User_Email,
-      User_Password: data.User_Password,
+      // User_Password: data.User_Password, // don't send password ever
     };
 
     const updated = await userRepository.update(user, mappedData);

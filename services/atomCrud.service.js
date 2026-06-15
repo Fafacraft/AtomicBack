@@ -24,7 +24,7 @@ export const atomCrudService = {
     // READ ONE
     getAtomById: async (id) => {
         const atom = await atomRepository.findById(id);
-        if (!atom) {
+        if (!atom || atom.length === 0) {
             const error = new Error('Atom not found');
             error.status = 404;
             throw error;
@@ -35,7 +35,7 @@ export const atomCrudService = {
     // READ ONE
     getAtomByUserId: async (userId) => {
         const atom = await atomRepository.findByUserId(userId);
-        if (!atom) {
+        if (!atom || atom.length === 0) {
             const error = new Error('Atom not found');
             error.status = 404;
             throw error;
@@ -46,7 +46,7 @@ export const atomCrudService = {
     // UPDATE
     updateAtom: async (id, data) => {
         const atom = await atomRepository.findById(id);
-        if (!atom) {
+        if (!atom || atom.length === 0) {
             const error = new Error('Atom not found');
             error.status = 404;
             throw error;
@@ -67,7 +67,7 @@ export const atomCrudService = {
     // DELETE
     deleteAtom: async (id) => {
         const atom = await atomRepository.findById(id);
-        if (!atom) {
+        if (!atom || atom.length === 0) {
             const error = new Error('Atom not found');
             error.status = 404;
             throw error;
